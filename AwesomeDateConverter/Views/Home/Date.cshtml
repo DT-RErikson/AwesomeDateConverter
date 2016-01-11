@@ -1,0 +1,26 @@
+﻿<form name="dateForm" class="form-inline">
+    <label class="control-label" for="date">Date: </label>
+    <div class="form-group">
+        <input ng-model="dateToConvert" type="datetime-local" class="form-control" placeholder="yyyy-MM-ddTHH:mm:ss" min="1903-01-01T00:00:00" max="9999-12-31T00:00:00" required>
+    </div>
+    <div class="form-group">
+        <button ng-click="convertDate($event)" type="submit" class="btn btn-default">Submit</button>
+    </div>
+</form>
+
+<div class="row" ng-show="waiting">
+    <div class="alert alert-info col-md-12">Waiting for response...</div>
+</div>
+
+<div class="row" ng-show="utcDate !== ''">
+    <div class="alert alert-success col-md-12">
+        <b>{{localDate}}</b> local is <b>{{utcDate}}</b> UTC
+    </div>
+</div>
+
+<div class="row" ng-show="errorMessage">
+    <div class="alert alert-danger col-md-12">
+        {{errorMessage}}
+    </div>
+</div>
+

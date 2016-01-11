@@ -1,0 +1,45 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AwesomeDateConverter", "AwesomeDateConverter\AwesomeDateConverter.csproj", "{67C027B1-3F76-4587-A6AA-5C941FFF3F3E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AwesomeDateConverter.Tests", "AwesomeDateConverter.Tests\AwesomeDateConverter.Tests.csproj", "{3C7DD4E4-0938-4C5F-A6D1-7F9D2E85BB98}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PublishScripts", "PublishScripts", "{0A05C12D-33AF-4B9F-9BF3-981823B1874F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{64361C14-AB5B-4619-A1CA-0DE8E5D476D3}"
+	ProjectSection(SolutionItems) = preProject
+		PublishScripts\Scripts\Deploy-AzureResourceGroup.ps1 = PublishScripts\Scripts\Deploy-AzureResourceGroup.ps1
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Templates", "Templates", "{243FAD8F-70B8-4EDE-9A31-6E8EBCBE8B30}"
+	ProjectSection(SolutionItems) = preProject
+		PublishScripts\Templates\AwesomeDateConverter.json = PublishScripts\Templates\AwesomeDateConverter.json
+		PublishScripts\Templates\AwesomeDateConverter.param.dev.json = PublishScripts\Templates\AwesomeDateConverter.param.dev.json
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{67C027B1-3F76-4587-A6AA-5C941FFF3F3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67C027B1-3F76-4587-A6AA-5C941FFF3F3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67C027B1-3F76-4587-A6AA-5C941FFF3F3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67C027B1-3F76-4587-A6AA-5C941FFF3F3E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C7DD4E4-0938-4C5F-A6D1-7F9D2E85BB98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C7DD4E4-0938-4C5F-A6D1-7F9D2E85BB98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C7DD4E4-0938-4C5F-A6D1-7F9D2E85BB98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C7DD4E4-0938-4C5F-A6D1-7F9D2E85BB98}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{64361C14-AB5B-4619-A1CA-0DE8E5D476D3} = {0A05C12D-33AF-4B9F-9BF3-981823B1874F}
+		{243FAD8F-70B8-4EDE-9A31-6E8EBCBE8B30} = {0A05C12D-33AF-4B9F-9BF3-981823B1874F}
+	EndGlobalSection
+EndGlobal
