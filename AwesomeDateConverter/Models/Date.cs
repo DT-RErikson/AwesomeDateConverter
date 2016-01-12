@@ -7,7 +7,7 @@ namespace AwesomeDateConverter.Models
 {
     public class Date  
     {
-        public DateTime posted { get; set; }
-        public DateTime converted { get; set; }
+        public String posted { get; set; }
+        public String converted { get; set; }
     }
 }

@@ -28,8 +28,8 @@ app.controller('dateCtrl', ['$scope', '$http', function ($scope, $http) {
         else {
             $scope.waiting = true;
             $scope.utcDate = '';
-            var currentDate = moment($scope.dateToConvert)
-            var p = $http.post('/api/dateconvert', currentDate)
+            var currentDate = moment.utc($scope.dateToConvert).local().format();
+            var p = $http.post('/api/dateconvert', { posted: currentDate } )
             p.then(function (res) {
                 $scope.waiting = false;
                 $scope.errorMessage = '';
@@ -43,3 +43,4 @@ app.controller('dateCtrl', ['$scope', '$http', function ($scope, $http) {
         $scope.utcDate = '';
     }
 }]);
+

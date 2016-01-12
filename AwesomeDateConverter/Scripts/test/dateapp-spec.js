@@ -53,11 +53,11 @@
         it('Should return an error message when the form is not valid', function () {
             scope.dateForm.$invalid === true;
             var controller = createController();
-            scope.dateToConvert = '1989-01-28T01:28:00';
+            scope.dateToConvert = moment('1989-01-28T01:28:00');
             event = scope.$emit("convertDate");
             scope.convertDate(event);
 
-            httpBackend.expectPOST('/api/dateconvert', moment(scope.dateToConvert)).respond(200, {posted: '1989-01-28T01:28:00', converted: '1989-01-28T08:28:00Z' });
+            httpBackend.expectPOST('/api/dateconvert', { posted: moment.utc(scope.dateToConvert).local().format() }).respond(200, { posted: '1989-01-28T01:28:00', converted: '1989-01-28T08:28:00Z' });
             expect(scope.waiting).toEqual(true);
             httpBackend.flush();
             expect(scope.waiting).toEqual(false);

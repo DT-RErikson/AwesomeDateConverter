@@ -25,24 +25,26 @@ namespace AwesomeDateConverter.Tests.Controllers
         }
 
         [Test]
-        [TestCase("1989-01-28T08:28:00.000Z")]
+        [TestCase("1989-01-28T01:28:00-07:00")]
         public void Post_ValidDateTime(string timeToConvert)
         {
-            var response = ctrl.Post(timeToConvert)
+            var requestedDate = new Date { posted = timeToConvert };
+            var response = ctrl.Post(requestedDate)
                 .ExecuteAsync(new System.Threading.CancellationToken())
                 .Result;
 
             Date dateResp;
             Assert.IsTrue(response.TryGetContentValue<Date>(out dateResp));
-            Assert.AreEqual(DateTime.Parse("1989-01-28T01:28:00"), dateResp.posted);
-            Assert.AreEqual(DateTime.Parse("1989-01-28T08:28:00.000Z").ToUniversalTime(), dateResp.converted);
+            Assert.AreEqual("1989-01-28T01:28:00", dateResp.posted);
+            Assert.AreEqual("1989-01-28T08:28:00Z", dateResp.converted);
         }
 
         [Test]
-        [TestCase("0000-01-28T08:28:00.000Z")]
+        [TestCase("0000-01-28T08:28:00.00Z")]
         public void Post_InValidDateTime(string timeToConvert)
         {
-            var response = ctrl.Post(timeToConvert)
+            var requestedDate = new Date { posted = timeToConvert };
+            var response = ctrl.Post(requestedDate)
                 .ExecuteAsync(new System.Threading.CancellationToken());
 
             Assert.IsFalse(response.Result.IsSuccessStatusCode);

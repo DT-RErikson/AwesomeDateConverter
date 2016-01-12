@@ -15,16 +15,14 @@ namespace AwesomeDateConverter.Controllers
     {
 
         [ResponseType(typeof(Date))]
-        public IHttpActionResult Post([FromBody]string timeToConvert)
+        public IHttpActionResult Post(Date timeToConvert)
         {
             try
             {
                 Date dateResponse = new Date();
-
-                var parsedDate = DateTime.Parse(timeToConvert);
-                var datePostedOffset = DateTimeOffset.Parse(parsedDate.ToString(), null);
-                dateResponse.posted = datePostedOffset.DateTime;
-                dateResponse.converted = DateTime.Parse(timeToConvert).ToUniversalTime();
+                var parsedDate = DateTimeOffset.Parse(timeToConvert.posted);
+                dateResponse.posted = DateTime.Parse(parsedDate.ToString()).ToString("yyyy-MM-ddTHH:mm:ss");
+                dateResponse.converted = DateTime.Parse(timeToConvert.posted).ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ssZ");
                 return this.Ok(dateResponse);
             }
             catch(Exception ex)
